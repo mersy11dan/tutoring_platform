@@ -8,6 +8,7 @@ import { canTransition } from "@/domain/hiring";
 import { requireActor } from "@/lib/actor";
 import { formatWhen } from "@/lib/format";
 import { getStore } from "@/lib/store";
+import { Crumbs } from "@/components/crumbs";
 
 export const metadata = { title: "Application" };
 
@@ -21,6 +22,7 @@ export default async function ApplicationDetailPage({ params }: { params: Promis
   const assessment = await store.getAssessmentForApplication(application.id);
   return (
     <>
+      <Crumbs items={[{ href: "/admin/applications", label: "Applications" }, { label: application.fullName }]} />
       <p className="text-sm text-gray-700">{application.email}</p>
       <div className="mt-2 flex flex-wrap items-center gap-3">
         <h1 className="text-4xl">{application.fullName}</h1>

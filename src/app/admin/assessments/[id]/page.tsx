@@ -6,6 +6,7 @@ import { Area, Check, GradeChecks } from "@/components/fields";
 import { saveAssessment } from "@/app/actions/hiring";
 import { requireActor } from "@/lib/actor";
 import { getStore } from "@/lib/store";
+import { Crumbs } from "@/components/crumbs";
 
 export const metadata = { title: "Assessment" };
 
@@ -21,6 +22,7 @@ export default async function AssessmentDetailPage({ params }: { params: Promise
   const editable = application.hiringStatus === "assessment_in_progress" || application.hiringStatus === "assessed";
   return (
     <>
+      <Crumbs items={[{ href: "/admin/assessments", label: "Assessments" }, { label: application.fullName }]} />
       <h1 className="text-4xl">{application.fullName}</h1>
       <p className="mt-3 max-w-prose text-gray-700">
         Score each requested grade from 0 to 100. A grade is eligible at 70. All four grades need every score at 70 or above and at least three at 85, then your confirmation.

@@ -7,6 +7,7 @@ import { canTransition, outcomeToStatus } from "@/domain/hiring";
 import { requireActor } from "@/lib/actor";
 import { formatWhen } from "@/lib/format";
 import { getStore } from "@/lib/store";
+import { Crumbs } from "@/components/crumbs";
 
 export const metadata = { title: "Interview" };
 
@@ -23,6 +24,7 @@ export default async function InterviewDetailPage({ params }: { params: Promise<
   ) || canTransition(application.hiringStatus, "interviewed");
   return (
     <>
+      <Crumbs items={[{ href: "/admin/interviews", label: "Interviews" }, { label: application.fullName }]} />
       <p className="text-sm text-gray-700 tabular-nums">{formatWhen(interview.scheduledAt)}</p>
       <h1 className="mt-2 text-4xl">{application.fullName}</h1>
       <p className="mt-3 text-gray-700">

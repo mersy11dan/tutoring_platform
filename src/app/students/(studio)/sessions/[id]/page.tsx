@@ -4,6 +4,7 @@ import { GOOGLE_NOT_CONNECTED, googleConnection, readGoogleEnv } from "@/lib/goo
 import { requireActor } from "@/lib/actor";
 import { formatWhen } from "@/lib/format";
 import { getStore } from "@/lib/store";
+import { Crumbs } from "@/components/crumbs";
 
 export const metadata = { title: "Lesson" };
 
@@ -18,6 +19,7 @@ export default async function StudentSessionPage({ params }: { params: Promise<{
   const google = googleConnection(readGoogleEnv());
   return (
     <>
+      <Crumbs items={[{ href: "/students/sessions", label: "Lessons" }, { label: session.title }]} />
       <p className="text-sm text-gray-700">Grade {session.grade}</p>
       <h1 className="mt-2 text-4xl">{session.title}</h1>
       <p className="mt-3 tabular-nums text-gray-700">

@@ -6,10 +6,11 @@ export default async function TeacherStudioLayout({ children }: { children: Reac
   return (
     <StudioFrame
       actor={actor}
+      area="Teachers"
       showGoogle
       items={[
-        { href: "/teachers/dashboard", label: "Dashboard", exact: true },
-        { href: "/teachers/grades", label: "Grades" },
+        { href: "/teachers/dashboard", label: "Home", exact: true },
+        { href: "/teachers/grades", label: "Your grades" },
         { href: "/teachers/sessions", label: "Lessons", exact: true },
         { href: "/teachers/sessions/new", label: "New lesson" },
         { href: "/teachers/assignments", label: "Assignments" },

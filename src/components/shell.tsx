@@ -6,15 +6,14 @@ import { isSupabaseConfigured } from "@/lib/supabase/service";
 import { googleConnection, readGoogleEnv } from "@/lib/google";
 import { PendingButton } from "./action-form";
 import { SideNav } from "./side-nav";
+import { Wordmark } from "./wordmark";
 
 export function PublicHeader() {
   return (
     <header className="border-b border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
-        <Link href="/" className="font-display text-2xl text-brand-900 no-underline" translate="no">
-          MathPath
-        </Link>
-        <nav aria-label="Sign in" className="flex gap-4 text-[15px]">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <Wordmark />
+        <nav aria-label="Sign in" className="flex flex-wrap gap-4 text-[0.9375rem]">
           <Link href="/students/sign-in" className="link">
             Students
           </Link>
@@ -29,11 +28,13 @@ export function PublicHeader() {
 
 export function StudioFrame({
   actor,
+  area,
   items,
   children,
   showGoogle = false,
 }: {
   actor: Actor;
+  area: string;
   items: { href: string; label: string; exact?: boolean }[];
   children: ReactNode;
   showGoogle?: boolean;
@@ -42,12 +43,13 @@ export function StudioFrame({
   return (
     <div className="min-h-dvh">
       <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-          <Link href="/" className="font-display text-2xl text-brand-900 no-underline" translate="no">
-            MathPath
-          </Link>
-          <div className="flex items-center gap-4">
-            <p className="hidden text-sm text-gray-700 sm:block">{actor.fullName}</p>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4">
+          <div className="flex flex-wrap items-center gap-4">
+            <Wordmark />
+            <p className="text-sm text-gray-700">{area}</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <p className="text-sm text-gray-700">{actor.fullName}</p>
             <form action={signOut}>
               <PendingButton className="btn btn-secondary" pendingLabel="Signing out…">
                 Sign out
@@ -57,17 +59,17 @@ export function StudioFrame({
         </div>
       </header>
       {!isSupabaseConfigured() ? (
-        <p className="bg-brand-800 px-4 py-2 text-center text-sm text-white">
+        <p className="banner bg-brand-800 text-white" role="status">
           Local demo. Supabase is not connected, so this browser is using sample data on this machine.
         </p>
       ) : null}
       {showGoogle && !google.connected ? (
-        <p className="border-b border-warning-100 bg-warning-50 px-4 py-2 text-center text-sm text-warning-800">
+        <p className="banner border-b border-warning-100 bg-warning-50 text-warning-800" role="status">
           Google not connected yet
         </p>
       ) : null}
-      <div className="mx-auto grid max-w-6xl md:grid-cols-[14rem_minmax(0,1fr)]">
-        <SideNav items={items} />
+      <div className="mx-auto grid max-w-6xl md:grid-cols-[minmax(12rem,16rem)_minmax(0,1fr)]">
+        <SideNav items={items} label={area} />
         <main id="main" className="min-w-0 px-4 py-8 md:px-8">
           {children}
         </main>

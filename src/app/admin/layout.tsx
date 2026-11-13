@@ -15,7 +15,7 @@ const items = [
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const actor = await requireActor("/admin");
   return (
-    <StudioFrame actor={actor} items={items} showGoogle>
+    <StudioFrame actor={actor} area="Admin" items={items} showGoogle>
       {children}
     </StudioFrame>
   );
