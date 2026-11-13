@@ -6,10 +6,11 @@ export default async function StudentStudioLayout({ children }: { children: Reac
   return (
     <StudioFrame
       actor={actor}
+      area="Students"
       items={[
-        { href: "/students/dashboard", label: "Dashboard", exact: true },
-        { href: "/students/enroll", label: "Grade" },
-        { href: "/students/sessions", label: "Lessons", exact: true },
+        { href: "/students/dashboard", label: "Home", exact: true },
+        { href: "/students/enroll", label: "Your grade" },
+        { href: "/students/sessions", label: "Lessons" },
         { href: "/students/assignments", label: "Assignments" },
       ]}
     >

@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Newsreader, Outfit } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500"],
-  variable: "--font-newsreader",
+  weight: ["500"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const outfit = Outfit({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-outfit",
+  weight: ["400", "600"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -28,12 +27,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${outfit.variable} h-full antialiased`}>
+    <html lang="en" className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}>
       <body className="min-h-full">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2"
-        >
+        <a href="#main" className="skip-link sr-only focus:not-sr-only">
           Skip to content
         </a>
         {children}

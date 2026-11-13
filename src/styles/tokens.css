@@ -1,0 +1,91 @@
+/*
+  MathPath design tokens. One source of truth.
+  Colors are solid sRGB hex from an OKLCH scale: brand hue 172, chroma 0.085.
+  Neutrals use the same hue at chroma 0.012.
+  Do not introduce a second palette in component files.
+*/
+
+:root {
+  --brand-50: #e5fbf3;
+  --brand-100: #d2f0e5;
+  --brand-200: #b9ded1;
+  --brand-300: #91c4b3;
+  --brand-400: #68a793;
+  --brand-500: #32826c;
+  --brand-600: #186d58;
+  --brand-700: #015543;
+  --brand-800: #033d2f;
+  --brand-900: #00261d;
+  --brand-950: #00110c;
+
+  --gray-50: #f3f6f5;
+  --gray-100: #e5e9e7;
+  --gray-200: #d0d5d4;
+  --gray-300: #b2b9b7;
+  --gray-400: #929a97;
+  --gray-500: #6b7471;
+  --gray-600: #57605d;
+  --gray-700: #414a47;
+  --gray-800: #2e3532;
+  --gray-900: #1b211f;
+  --gray-950: #0a0e0d;
+
+  --success-50: #e4fde9;
+  --success-100: #d1f2d8;
+  --success-700: #02572a;
+  --warning-50: #fff4e3;
+  --warning-100: #fbe4c2;
+  --warning-700: #604102;
+  --warning-800: #452e02;
+  --error-50: #fff2f0;
+  --error-100: #fee0dd;
+  --error-700: #831a1d;
+
+  --color-bg: var(--gray-50);
+  --color-fg: var(--gray-900);
+  --color-fg-muted: var(--gray-700);
+  --color-surface: #ffffff;
+  --color-line: var(--gray-200);
+  --color-line-strong: var(--gray-300);
+  --color-action: var(--brand-700);
+  --color-action-hover: var(--brand-800);
+  --color-on-action: #ffffff;
+  --color-quiet: var(--brand-50);
+  --color-mark: var(--brand-800);
+
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.125rem;
+  --text-title: 1.75rem;
+  --text-display: clamp(2.4rem, 4.6vw, 4rem);
+  --leading-body: 1.6;
+  --leading-title: 1.2;
+  --leading-display: 1.02;
+  --tracking-display: -0.03em;
+  --measure: 38rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  --radius-none: 0;
+  --radius-control: 2px;
+  --radius-button: 4px;
+
+  --elevation-flat: none;
+  --elevation-line: 0 0 0 1px var(--color-line);
+  --elevation-press: 3px 3px 0 0 var(--brand-900);
+
+  --motion-duration: 140ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  --focus-width: 3px;
+  --focus-offset: 3px;
+  --focus-color: var(--brand-700);
+}

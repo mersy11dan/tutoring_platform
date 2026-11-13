@@ -3,28 +3,47 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function SideNav({ items }: { items: { href: string; label: string; exact?: boolean }[] }) {
+function isCurrent(pathname: string, href: string, exact?: boolean) {
+  return exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+}
+
+export function SideNav({
+  items,
+  label,
+}: {
+  items: { href: string; label: string; exact?: boolean }[];
+  label: string;
+}) {
   const pathname = usePathname();
-  return (
-    <nav aria-label="Section" className="border-b border-gray-200 bg-white md:border-b-0 md:border-r">
-      <ul className="flex gap-1 overflow-x-auto px-3 py-3 md:grid md:px-3 md:py-6">
+  const current = items.find((item) => isCurrent(pathname, item.href, item.exact));
+
+  function list() {
+    return (
+      <ul className="grid">
         {items.map((item) => {
-          const active = item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
+          const active = isCurrent(pathname, item.href, item.exact);
           return (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`block whitespace-nowrap px-3 py-2 text-[15px] no-underline ${
-                  active ? "bg-brand-100 text-brand-900" : "text-gray-800 hover:bg-gray-100"
-                }`}
-              >
+              <Link href={item.href} aria-current={active ? "page" : undefined} className="nav-link">
                 {item.label}
               </Link>
             </li>
           );
         })}
       </ul>
+    );
+  }
+
+  return (
+    <nav aria-label={label} className="border-b border-gray-200 bg-white md:border-b-0 md:border-r">
+      <details className="nav-disclosure md:hidden">
+        <summary>
+          Menu
+          {current ? <span className="ml-2 font-normal text-gray-700">{current.label}</span> : null}
+        </summary>
+        {list()}
+      </details>
+      <div className="hidden px-2 py-4 md:block">{list()}</div>
     </nav>
   );
 }

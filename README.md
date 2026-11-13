@@ -2,31 +2,35 @@
 
 High-school mathematics for grades 9, 10, 11, and 12. Students enroll in the one grade they are in. Teachers apply, interview, and sit a per-grade assessment before they can teach. Kony and Sisay are the admins, once their emails are on the allowlist.
 
-## Design
+## Design system
+
+The source of truth is `src/styles/tokens.css`. It holds color, type scale, spacing, radius, elevation, motion, and focus. `src/app/globals.css` maps those tokens into Tailwind and the shared controls. Components do not invent a second palette.
+
+Identity: MathPath is viridian fountain-pen ink on graphite paper. The mark is a single stroked curve, the shape of a path, drawn next to the word in Fraunces. Manrope carries the interface. Grade numerals use Fraunces so the number reads as the subject, and the rest of the app stays a working tool. Surfaces are flat with a hairline. The only raised mark is a solid offset on a pressed primary button. There are no gradients.
 
 Skills used, installed from [skills.sh](https://skills.sh):
 
-- `frontend-design` from anthropics/skills, for a subject-specific, restrained layout.
-- `color-palette` from arnavpuri/designskills, for an OKLCH scale and WCAG contrast.
+- `frontend-design` from anthropics/skills, for a subject-specific layout that is not a template.
+- `color-palette` from arnavpuri/designskills, for the OKLCH scale and contrast checks.
 - `type-pair` from dragoon0x/optik, for the pairing rules and the banned-font list.
 - `taste-typography` from madebymustafa/design-taste, for the type scale, measure, and weights.
-- `web-design-guidelines` from vercel-labs/agent-skills, for labels, focus, forms, and contrast.
+- `web-design-guidelines` from vercel-labs/agent-skills, for labels, focus, forms, and zoom.
 
-Fonts: **Newsreader** for headings, **Outfit** for interface text. Fallbacks are Iowan Old Style / Palatino, and Avenir Next / Segoe UI.
+Fonts: **Fraunces** for the wordmark, the home headline, and grade numerals. **Manrope** for interface text and section titles.
 
-Palette, solid colors only, from OKLCH hue 258 and chroma 0.09 (neutrals use chroma 0.012):
+Palette, solid colors only, from OKLCH hue 172 and chroma 0.085 (neutrals use chroma 0.012):
 
-| Role | Hex |
-| --- | --- |
-| Paper | `#f4f5f8` |
-| Ink | `#1c1f24` |
-| Headings | `#061e41` |
-| Primary button | `#274777` |
-| Primary hover | `#16325b` |
-| Quiet highlight | `#dbe9fe` |
-| Success text | `#02572a` |
-| Warning text | `#604102` |
-| Error text | `#831a1d` |
+| Role | Token | Hex |
+| --- | --- | --- |
+| Paper | `--color-bg` | `#f3f6f5` |
+| Ink | `--color-fg` | `#1b211f` |
+| Headings | `--brand-900` | `#00261d` |
+| Primary button | `--brand-700` | `#015543` |
+| Primary hover | `--brand-800` | `#033d2f` |
+| Quiet highlight | `--brand-50` | `#e5fbf3` |
+| Success text | `--success-700` | `#02572a` |
+| Warning text | `--warning-800` | `#452e02` |
+| Error text | `--error-700` | `#831a1d` |
 
 ## Scripts
 

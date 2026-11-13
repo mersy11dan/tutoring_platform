@@ -14,6 +14,13 @@ function filesUnder(directory: string): string[] {
 }
 
 describe("solid colors", () => {
+  it("keeps the design tokens in one file", () => {
+    const css = readFileSync("src/styles/tokens.css", "utf8");
+    for (const token of ["--space-4", "--text-body", "--radius-button", "--elevation-line", "--motion-duration", "--focus-width", "--brand-700"]) {
+      assert.ok(css.includes(token), token);
+    }
+  });
+
   it("does not use gradient fills in the interface", () => {
     const files = filesUnder("src");
     assert.ok(files.length > 0);

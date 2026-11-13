@@ -2,11 +2,11 @@ import Link from "next/link";
 import { GRADES } from "@/domain/grades";
 import { PublicHeader } from "@/components/shell";
 
-const gradeCopy: Record<(typeof GRADES)[number], string> = {
-  9: "A full path, not a sample. Enrollment, lessons, and assignments all start here.",
-  10: "The same path, for the grade you are in now.",
-  11: "The same path, for the grade you are in now.",
-  12: "The same path, for the grade you are in now.",
+const gradeNote: Record<(typeof GRADES)[number], string> = {
+  9: "Enrollment, lessons, and assignments.",
+  10: "The same work, for this year.",
+  11: "One active grade. Lessons stay with it.",
+  12: "The last year of high school here.",
 };
 
 export default function HomePage() {
@@ -14,12 +14,9 @@ export default function HomePage() {
     <>
       <PublicHeader />
       <main id="main" className="mx-auto w-full max-w-5xl px-6 pb-24">
-        <p className="mt-16 text-[15px] text-gray-700">High-school mathematics</p>
-        <h1 className="mt-3 max-w-[16ch] text-balance text-[clamp(2.6rem,6vw,4.5rem)]">
-          A teacher for the grade you are in.
-        </h1>
-        <p className="mt-6 max-w-prose text-pretty text-lg leading-8 text-gray-700">
-          Students enroll in one grade, from Grade 9 through Grade 12. Teachers apply, sit an interview, and take an assessment before they teach.
+        <h1 className="display mt-16">Grade 9 is a full year here. So are 10, 11, and 12.</h1>
+        <p className="mt-6 max-w-[var(--measure)] text-pretty text-[var(--text-lead)] leading-8 text-gray-700">
+          A student enrolls in the one grade they are in. A teacher is hired only for grades they passed: 70 or above, and a harder bar to teach all four.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link href="/students/sign-up" className="btn btn-primary">
@@ -30,26 +27,30 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <section className="mt-20 border-t border-gray-200 pt-8">
-          <h2 className="text-3xl">Four grades</h2>
-          <p className="mt-3 max-w-prose text-gray-700">
-            Grade 9 is a complete path. Grades 10, 11, and 12 use that same path. A student keeps one active grade: the grade they are in now.
-          </p>
-          <ol className="mt-8 grid gap-px bg-gray-200 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mt-16" aria-labelledby="grades-heading">
+          <h2 id="grades-heading" className="text-[var(--text-title)]">
+            The four grades
+          </h2>
+          <ol className="grade-rail">
             {GRADES.map((grade) => (
-              <li key={grade} className="bg-white px-5 py-6">
-                <p className="font-display text-6xl leading-none text-brand-800">{grade}</p>
-                <p className="mt-4 text-[15px] leading-6 text-gray-700">Grade {grade}. {gradeCopy[grade]}</p>
+              <li key={grade}>
+                <p className="numeral text-6xl">{grade}</p>
+                <p className="mt-3 text-[var(--text-small)] leading-6 text-gray-700">
+                  Grade {grade}. {gradeNote[grade]}
+                </p>
               </li>
             ))}
           </ol>
         </section>
 
-        <section className="mt-16 grid gap-12 md:grid-cols-2">
+        <section className="mt-16 grid gap-10 border-t border-gray-200 pt-8 md:grid-cols-2" aria-labelledby="ways-in">
+          <h2 id="ways-in" className="sr-only">
+            Ways in
+          </h2>
           <div>
-            <h2 className="text-3xl">Students</h2>
-            <p className="mt-3 max-w-prose text-gray-700">
-              Sign up, enroll in your grade, and see only that grade’s lessons and assignments. Lessons use a Google Meet link. Work can live in Google Classroom once it is connected.
+            <h3 className="text-2xl">Students</h3>
+            <p className="mt-3 max-w-[var(--measure)] text-gray-700">
+              Sign up, choose your grade, and see only that grade’s lessons and assignments. A lesson can use a Meet link. Assignments stay in MathPath until Classroom is connected.
             </p>
             <p className="mt-4">
               <Link href="/students/sign-in" className="link">
@@ -58,19 +59,19 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <h2 className="text-3xl">Teachers</h2>
+            <h3 className="text-2xl">Teachers</h3>
             <ol className="mt-4 grid gap-4">
               <li>
-                <p className="font-display text-2xl text-brand-800">1</p>
+                <p className="numeral text-3xl">1</p>
                 <p className="text-gray-700">Apply with the grades you want to teach.</p>
               </li>
               <li>
-                <p className="font-display text-2xl text-brand-800">2</p>
+                <p className="numeral text-3xl">2</p>
                 <p className="text-gray-700">An admin interviews you and records the outcome.</p>
               </li>
               <li>
-                <p className="font-display text-2xl text-brand-800">3</p>
-                <p className="text-gray-700">A score of 70 or above makes a grade eligible. All four grades need a stronger result, and an admin confirms it.</p>
+                <p className="numeral text-3xl">3</p>
+                <p className="text-gray-700">Scores decide the grades you may teach. You opt in only to those grades.</p>
               </li>
             </ol>
             <p className="mt-4">
