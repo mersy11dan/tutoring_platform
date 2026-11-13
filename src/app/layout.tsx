@@ -19,11 +19,11 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kony & Sisay",
-    template: "%s - Kony & Sisay",
+    default: "MathPath",
+    template: "%s - MathPath",
   },
   description:
-    "High-school mathematics for grades 9 through 12. Students enroll in one grade. Teachers apply, interview, and sit an assessment before they teach.",
+    "MathPath is high-school mathematics for grades 9 through 12. Students enroll in one grade. Teachers apply, interview, and sit an assessment before they teach.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

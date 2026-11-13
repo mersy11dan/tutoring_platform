@@ -66,7 +66,7 @@ export default function HomePage() {
               </li>
               <li>
                 <p className="font-display text-2xl text-brand-800">2</p>
-                <p className="text-gray-700">Kony or Sisay interviews you and records the outcome.</p>
+                <p className="text-gray-700">An admin interviews you and records the outcome.</p>
               </li>
               <li>
                 <p className="font-display text-2xl text-brand-800">3</p>
@@ -83,7 +83,7 @@ export default function HomePage() {
       </main>
       <footer className="border-t border-gray-200 px-6 py-8 text-sm text-gray-700">
         <p className="mx-auto max-w-5xl">
-          Kony and Sisay run this studio. The product name is still open. Google Meet and Classroom stay off until their accounts are connected.
+          MathPath. Google Meet and Classroom stay off until those accounts are connected.
         </p>
       </footer>
     </>

@@ -25,7 +25,7 @@ export default async function TeacherSignInPage({
       <main id="main" className="mx-auto w-full max-w-md px-6 py-16">
         <h1 className="text-4xl">Teacher sign in</h1>
         <p className="mt-3 text-gray-700">
-          Approved teachers open their studio. Applicants see the status of their application. Admins land in the review desk.
+          Approved teachers open their dashboard. Applicants see the status of their application. Admins land in the review desk.
         </p>
         <div className="mt-8">
           <ActionForm action={signInTeacher} submitLabel="Sign in" pendingLabel="Signing in…">

@@ -61,7 +61,7 @@ export default async function ApplicationStatusPage() {
             </p>
             {application.hiringStatus === "on_hold" ? (
               <p className="mt-4 border border-warning-100 bg-warning-50 px-3 py-2 text-[15px] text-warning-800">
-                The application is on hold. Kony or Sisay will resume it or close it.
+                The application is on hold. An admin will resume it or close it.
               </p>
             ) : null}
             {application.hiringStatus === "rejected" ? (

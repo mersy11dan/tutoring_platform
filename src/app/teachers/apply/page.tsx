@@ -13,7 +13,7 @@ export default function ApplyPage() {
       <main id="main" className="mx-auto w-full max-w-xl px-6 py-16">
         <h1 className="text-4xl">Apply to teach</h1>
         <p className="mt-3 max-w-prose text-gray-700">
-          This is an application, not an account that can teach. Kony or Sisay will interview you, then you take an assessment for each grade you request.
+          This is an application, not an account that can teach. An admin will interview you, then you take an assessment for each grade you request.
         </p>
         <div className="mt-8">
           <ActionForm action={submitApplication} submitLabel="Submit application" pendingLabel="Submitting…">

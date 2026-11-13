@@ -1,8 +1,6 @@
-# Kony & Sisay
+# MathPath
 
 High-school mathematics for grades 9, 10, 11, and 12. Students enroll in the one grade they are in. Teachers apply, interview, and sit a per-grade assessment before they can teach. Kony and Sisay are the admins, once their emails are on the allowlist.
-
-The product name is still open. The interface uses their names as the studio mark.
 
 ## Design
 
@@ -52,7 +50,7 @@ That is demo mode. Sample accounts live in a gitignored `.data/store.json` file,
 
 | Email | What you can open |
 | --- | --- |
-| `student@example.com` | Student studio, enrolled in Grade 9 |
+| `student@example.com` | Student dashboard, enrolled in Grade 9 |
 | `applicant@example.com` | Application status, submitted |
 | `interview@example.com` | Application with an interview on the calendar |
 | `candidate@example.com` | Assessment ready for an admin decision (92, 88, 86, 74) |
@@ -115,5 +113,4 @@ Admin: `/admin`, `/admin/applications`, `/admin/applications/[id]`, `/admin/inte
 - Real admin addresses.
 - A Google Cloud OAuth client and a refresh token.
 - A hosted Supabase project, then `supabase db push`.
-- A product name, if you want one other than the studio mark.
 - A production deploy, only after you ask for it.

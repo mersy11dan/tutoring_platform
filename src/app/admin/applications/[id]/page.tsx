@@ -41,7 +41,7 @@ export default async function ApplicationDetailPage({ params }: { params: Promis
             <ActionForm action={scheduleInterview} submitLabel="Schedule interview" pendingLabel="Scheduling…">
               <input type="hidden" name="applicationId" value={application.id} />
               <Field label="When" name="scheduledAt" type="datetime-local" required hint="Africa/Addis Ababa." />
-              <Field label="Interviewer email" name="interviewerEmail" type="email" autoComplete="email" hint="Kony or Sisay, once you have the address. Optional for now." />
+              <Field label="Interviewer email" name="interviewerEmail" type="email" autoComplete="email" hint="Optional. Use the interviewer’s email if you have it." />
             </ActionForm>
           </div>
         </section>

@@ -13,7 +13,7 @@ export default async function TeacherDashboardPage() {
   const sessions = await store.listSessions({ teacherId: actor.id });
   return (
     <>
-      <h1 className="text-4xl">Your studio</h1>
+      <h1 className="text-4xl">Your teaching</h1>
       <p className="mt-3 max-w-prose text-gray-700">
         You can teach {teaching.length === 0 ? "no grades yet" : teaching.map((item) => `Grade ${item.grade}`).join(", ")}.
         Opt in only to grades you were approved for.

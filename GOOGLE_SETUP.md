@@ -8,7 +8,7 @@ Nothing in this repository is a live Google integration.
 
 1. Create or choose a Google Cloud project.
 2. Enable **Google Calendar API** and **Google Classroom API**.
-3. Configure the OAuth consent screen. Add the test users who will connect the studio account.
+3. Configure the OAuth consent screen. Add the test users who will connect the MathPath account.
 4. Create an OAuth client of type **Web application**.
 
 ## Redirect URI
